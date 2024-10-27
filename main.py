@@ -95,11 +95,11 @@ def job():
     asyncio.run_coroutine_threadsafe(create_thread_in_forum(), client.loop)
 
 def schedule_jobs():
-    schedule.every(1).minutes.do(job)
-    schedule.every().tuesday.at("07:30").do(job)
-    schedule.every().wednesday.at("07:30").do(job)
-    schedule.every().thursday.at("07:30").do(job)
-    schedule.every().friday.at("07:30").do(job)
+    schedule.every().monday.at("07:00").do(job)
+    schedule.every().tuesday.at("07:00").do(job)
+    schedule.every().wednesday.at("07:00").do(job)
+    schedule.every().thursday.at("07:00").do(job)
+    schedule.every().friday.at("07:00").do(job)
 
 @client.event
 async def on_ready():
