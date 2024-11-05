@@ -79,7 +79,14 @@ async def send_reminder(thread_id):
         guild = thread.guild
         members_to_remind = [
             member for member in guild.members
-            if member.id not in written_users and not member.bot
+            if (
+                member.id not in written_users
+                and not member.bot
+                and (
+                    any(role.id == 1049216330647228436 for role in member.roles) or
+                    any(role.id == 1049215981349781566 for role in member.roles)
+                )
+            )
         ]
 
         if members_to_remind:
